@@ -10,21 +10,12 @@ const app=express()
 dotenv.config();
 mongodb();
 
-const allowedOrigins = [
-  'https://mymemoriesp.netlify.app',
-  'https://mymemories-qrkc.onrender.com', // <-- add this too
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // if you're using cookies or sessions
+  origin: "https://mymemoriesp.netlify.app", // React app URL
+  credentials: true,  
+  allowedHeaders: ['Content-Type', 'Authorization'],             // only if you're using cookies
 }));
+
 app.use(express.json())
 
 app.use('/',(req,res)=>{
