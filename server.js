@@ -26,12 +26,7 @@ app.use(cors({
   credentials: true, // if you're using cookies or sessions
 }));
 app.use(express.json())
-app.use(express.static(path.join(__dirname, "dist"))); // ✅ Your React/Vite build
 
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
 app.use('/api/auth',authRoutes)
 app.use('/api/memories',memoryRoutes)
 app.use('/api/admin',adminRoutes)
