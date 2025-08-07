@@ -11,7 +11,7 @@ dotenv.config();
 mongodb();
 
 app.use(cors({
-  origin: "http://localhost:5173", // React app URL
+  origin: "https://mymemoriesp.netlify.app", // React app URL
   credentials: true,  
   allowedHeaders: ['Content-Type', 'Authorization'],             // only if you're using cookies
 }));
